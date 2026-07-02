@@ -16,10 +16,6 @@ export default function Footer() {
             {profile.username}
             <span className="text-muted">.dev</span>
           </p>
-          <p className="mt-1 text-xs text-muted">
-            © {new Date().getFullYear()} {profile.name}. Built with Next.js &amp;
-            Tailwind.
-          </p>
         </div>
 
         <div className="flex items-center gap-3">

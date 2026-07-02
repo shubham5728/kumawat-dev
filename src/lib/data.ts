@@ -50,6 +50,14 @@ export const skillGroups: { label: string; items: string[] }[] = [
   },
 ];
 
+// Repos to hide from the live feed entirely (case-insensitive, by name).
+export const excludedRepos: string[] = [
+  "Multi-Signal-Industrial-IoT-Guardian",
+  "garage-connect",
+  "Python_for_DATASCIENCE",
+  "Titanic-Survival-Prediction",
+];
+
 // Repos to surface first and how to describe them (overrides sparse GitHub
 // descriptions). Order here defines display order for flagship projects.
 export const flagshipRepos: {
@@ -66,25 +74,11 @@ export const flagshipRepos: {
     highlights: ["Kafka + Spark", "TensorFlow", "FastAPI", "Docker Compose"],
   },
   {
-    name: "Multi-Signal-Industrial-IoT-Guardian",
-    headline: "Predictive-maintenance engine with a physics-aware ensemble",
-    blurb:
-      "Processes 55+ sensors/sec through a 5-layer funnel — Transformer, One-Class SVM, Isolation Forest and drift detection fused by a gated consensus filter. 0.868 F1 with <0.05% false positives on NASA engine data.",
-    highlights: ["PyTorch", "Transformers", "pytest + flake8", "TimescaleDB"],
-  },
-  {
     name: "AI-Sign-Language-Translator",
     headline: "Bidirectional real-time sign-language translator",
     blurb:
       "Converts sign gestures to speech and back using MediaPipe Holistic landmarks and an LSTM network — 170+ classes, ~35ms recognition latency on a standard webcam.",
     highlights: ["MediaPipe", "LSTM", "OpenCV", "Streamlit"],
-  },
-  {
-    name: "garage-connect",
-    headline: "Full-stack marketplace for automotive services",
-    blurb:
-      "Vehicle owners discover garages, book services and leave reviews. Express + TypeScript + Prisma/PostgreSQL backend with JWT auth and Zod validation; deployed on Vercel + Render.",
-    highlights: ["TypeScript", "Express", "Prisma", "PostgreSQL"],
   },
   {
     name: "SpaceX_Falcon9_Landing_Success",

@@ -1,4 +1,4 @@
-import { profile, flagshipRepos } from "./data";
+import { profile, flagshipRepos, excludedRepos } from "./data";
 
 // Shape of the fields we consume from the GitHub REST API.
 export interface GitHubRepo {
@@ -36,6 +36,8 @@ export interface Project {
 }
 
 const GITHUB_API = `https://api.github.com/users/${profile.githubUser}/repos?per_page=100&sort=pushed`;
+
+const excludedSet = new Set(excludedRepos.map((n) => n.toLowerCase()));
 
 const flagshipByName = new Map(
   flagshipRepos.map((r) => [r.name.toLowerCase(), r])
@@ -87,7 +89,8 @@ export async function getProjects(): Promise<Project[]> {
       (r) =>
         !r.fork &&
         !r.archived &&
-        r.name.toLowerCase() !== profile.githubUser.toLowerCase()
+        r.name.toLowerCase() !== profile.githubUser.toLowerCase() &&
+        !excludedSet.has(r.name.toLowerCase())
     )
     .map(mapRepo);
 

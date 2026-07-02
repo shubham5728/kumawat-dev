@@ -20,10 +20,8 @@ export default function Hero() {
           {/* Left — narrative */}
           <div>
             <Reveal index={0}>
-              <p className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm text-muted">
-                <span>{profile.role}</span>
-                <span aria-hidden>·</span>
-                <span>{profile.location}</span>
+              <p className="mb-4 font-mono text-sm text-muted">
+                {profile.role}
               </p>
             </Reveal>
 

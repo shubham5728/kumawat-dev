@@ -1,4 +1,4 @@
-import { education, achievements } from "@/lib/data";
+import { education, achievements, profile } from "@/lib/data";
 import Reveal from "./Reveal";
 import { StarIcon } from "./icons";
 
@@ -22,6 +22,9 @@ export default function Credentials() {
                 </h3>
                 <p className="text-sm text-foreground/70">{e.org}</p>
                 <p className="mt-1 font-mono text-xs text-muted">{e.period}</p>
+                <p className="mt-2 font-mono text-xs text-muted">
+                  {profile.location}
+                </p>
               </div>
             ))}
           </div>

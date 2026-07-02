@@ -29,7 +29,7 @@ export default function Avatar({
           src={src}
           alt={name}
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover object-top grayscale transition-all duration-500 hover:grayscale-0"
+          className="h-full w-full object-cover object-center grayscale transition-all duration-500 hover:grayscale-0"
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center">

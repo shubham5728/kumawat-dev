@@ -12,7 +12,7 @@ export default function Contact() {
     <section id="contact">
       <div className="mx-auto max-w-5xl px-5 py-20 sm:py-28">
         <h2 className="font-mono text-sm uppercase tracking-widest text-muted">
-          03 — Contact
+          06 — Contact
         </h2>
         <p className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
           Let&apos;s build something that ships.

@@ -1,4 +1,10 @@
-import { profile, flagshipRepos, excludedRepos } from "./data";
+import {
+  profile,
+  flagshipRepos,
+  excludedRepos,
+  categoryKeywords,
+  type Category,
+} from "./data";
 
 // Shape of the fields we consume from the GitHub REST API.
 export interface GitHubRepo {
@@ -30,6 +36,8 @@ export interface Project {
   forks: number;
   topics: string[];
   pushedAt: string;
+  updatedLabel: string;
+  categories: Category[];
   isFlagship: boolean;
   headline?: string;
   highlights?: string[];
@@ -51,6 +59,30 @@ function toTitle(name: string): string {
     .replace(/[-_]+/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase())
     .trim();
+}
+
+// Human-friendly "updated N ago" from an ISO timestamp.
+function relativeTime(iso: string): string {
+  const then = new Date(iso).getTime();
+  const days = Math.floor((Date.now() - then) / 86_400_000);
+  if (days <= 0) return "Updated today";
+  if (days === 1) return "Updated yesterday";
+  if (days < 30) return `Updated ${days}d ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `Updated ${months}mo ago`;
+  const years = Math.floor(months / 12);
+  return `Updated ${years}y ago`;
+}
+
+// Infer categories for a non-flagship repo from its name/description/language.
+function inferCategories(repo: GitHubRepo): Category[] {
+  const haystack = `${repo.name} ${repo.description ?? ""} ${(repo.topics ?? []).join(" ")}`.toLowerCase();
+  const found = new Set<Category>();
+  for (const { category, match } of categoryKeywords) {
+    if (match.some((kw) => haystack.includes(kw))) found.add(category);
+  }
+  if (found.size === 0) found.add("Machine Learning");
+  return [...found];
 }
 
 /**
@@ -114,6 +146,8 @@ function mapRepo(repo: GitHubRepo): Project {
     forks: repo.forks_count,
     topics: repo.topics ?? [],
     pushedAt: repo.pushed_at,
+    updatedLabel: relativeTime(repo.pushed_at),
+    categories: flagship?.categories ?? inferCategories(repo),
     isFlagship: Boolean(flagship),
     headline: flagship?.headline,
     highlights: flagship?.highlights,
@@ -150,6 +184,8 @@ function fallbackProjects(): Project[] {
     forks: 0,
     topics: [],
     pushedAt: new Date().toISOString(),
+    updatedLabel: "Updated recently",
+    categories: r.categories,
     isFlagship: true,
     headline: r.headline,
     highlights: r.highlights,

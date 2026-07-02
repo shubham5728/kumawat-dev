@@ -9,15 +9,25 @@ import {
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group relative flex flex-col rounded-lg border border-border bg-surface p-6 transition-colors hover:border-foreground/40">
+    <article className="group relative flex h-full flex-col rounded-lg border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/40 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.04)]">
       <div className="flex items-start justify-between gap-4">
-        <div>
-          {project.isFlagship && (
-            <span className="mb-2 inline-block font-mono text-[11px] uppercase tracking-widest text-muted">
-              Featured
-            </span>
-          )}
-          <h3 className="text-lg font-semibold tracking-tight">
+        <div className="min-w-0">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            {project.isFlagship && (
+              <span className="rounded-full border border-foreground/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                Featured
+              </span>
+            )}
+            {project.categories.slice(0, 1).map((c) => (
+              <span
+                key={c}
+                className="font-mono text-[10px] uppercase tracking-widest text-muted"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+          <h3 className="truncate text-lg font-semibold tracking-tight">
             {project.displayName}
           </h3>
         </div>
@@ -26,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open ${project.displayName} on GitHub`}
-          className="text-muted transition-colors group-hover:text-foreground"
+          className="shrink-0 text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
         >
           <ArrowUpRightIcon />
         </a>
@@ -98,6 +108,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           </a>
         </div>
       </div>
+
+      <p className="mt-3 font-mono text-[11px] text-muted">
+        {project.updatedLabel}
+      </p>
     </article>
   );
 }

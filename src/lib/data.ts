@@ -9,7 +9,7 @@ export const profile = {
     "Building production-ready AI systems for Industrial IoT, Computer Vision & Real-time Analytics.",
   summary:
     "Data Scientist and ML engineer specializing in real-time streaming analytics, deep learning, and end-to-end model deployment — from Kafka/Spark pipelines to Dockerized inference services.",
-  location: "India",
+  location: "Ahmedabad, Gujarat, India",
   github: "https://github.com/shubham5728",
   githubUser: "shubham5728",
   linkedin: "https://www.linkedin.com/in/shubham-kumawat-aa6a66291",
@@ -103,9 +103,9 @@ export const education: {
   period: string;
 }[] = [
   {
-    degree: "B.Tech (edit with your branch)",
-    org: "Your College / University",
-    period: "20XX — 20XX",
+    degree: "Bachelor of Engineering — CSE (Data Science)",
+    org: "SAL College of Engineering",
+    period: "2023 — 2027",
   },
 ];
 

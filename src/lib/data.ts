@@ -12,7 +12,7 @@ export const profile = {
   github: "https://github.com/shubham5728",
   githubUser: "shubham5728",
   linkedin: "https://www.linkedin.com/in/shubham-kumawat-aa6a66291",
-  email: "spenseunofficial@gmail.com",
+  email: "shubhamkumawat722@gmail.com",
 };
 
 export const about = {

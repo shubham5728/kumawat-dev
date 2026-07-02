@@ -52,6 +52,7 @@ export const skillGroups: { label: string; items: string[] }[] = [
 
 // Repos to hide from the live feed entirely (case-insensitive, by name).
 export const excludedRepos: string[] = [
+  "kumawat-dev",
   "Multi-Signal-Industrial-IoT-Guardian",
   "garage-connect",
   "Python_for_DATASCIENCE",

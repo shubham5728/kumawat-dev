@@ -5,7 +5,6 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import ProjectsSkeleton from "@/components/ProjectsSkeleton";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
         </Suspense>
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

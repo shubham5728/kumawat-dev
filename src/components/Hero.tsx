@@ -11,11 +11,6 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-background" aria-hidden />
 
       <div className="relative mx-auto max-w-5xl px-5 py-24 sm:py-32">
-        <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-muted">
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-          Available for opportunities
-        </p>
-
         <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl">
           {profile.name}
         </h1>

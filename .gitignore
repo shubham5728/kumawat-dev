@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local-only backup of original full-length photo
 public/profile-full.jpg
+
+# Editable resume source (only the generated PDF is published)
+public/*.docx

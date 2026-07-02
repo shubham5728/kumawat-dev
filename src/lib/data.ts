@@ -28,6 +28,18 @@ export const about = {
   ],
 };
 
+// Core tech shown as chips in the hero — the tools recruiters scan for.
+export const coreStack: string[] = [
+  "Kafka",
+  "Spark",
+  "TensorFlow",
+  "PyTorch",
+  "FastAPI",
+  "Docker",
+  "OpenCV",
+  "Scikit-Learn",
+];
+
 // Headline stats shown under the hero. Keep these honest and easy to defend.
 export const stats: { value: string; label: string }[] = [
   { value: "12+", label: "Projects Shipped" },
@@ -64,9 +76,9 @@ export const skillGroups: { label: string; items: string[] }[] = [
 ];
 
 /*
- * NOTE — verify before publishing.
- * The timeline, education and achievements below are seeded from your public
- * work. Edit them to match your real dates, roles, college and certificates.
+ * Honest, project-based history — this reflects self-directed and academic
+ * work, NOT paid employment. Keep it truthful; add real internships/roles
+ * here only once they actually happen.
  */
 export const experience: {
   period: string;
@@ -76,24 +88,24 @@ export const experience: {
 }[] = [
   {
     period: "2025 — Present",
-    title: "Independent ML / AI Engineer",
-    org: "Self-directed",
+    title: "AI / ML Engineering — Personal Projects",
+    org: "Open Source · Self-directed",
     description:
       "Building real-time industrial-monitoring systems: Kafka + Spark streaming, Transformer/autoencoder anomaly-detection ensembles, and Dockerized FastAPI inference services.",
   },
   {
     period: "2024",
-    title: "Data Science Practitioner",
-    org: "IBM Data Science (Professional Certificate)",
+    title: "IBM Data Science Professional Certificate",
+    org: "Coursera / IBM",
     description:
-      "Completed the IBM Data Science capstone — the SpaceX Falcon 9 landing-prediction project — covering API data collection, EDA, SQL, and classification modelling.",
+      "Completed the capstone — the SpaceX Falcon 9 landing-prediction project — covering API data collection, EDA, SQL, and classification modelling.",
   },
   {
     period: "2023",
     title: "Machine Learning Foundations",
-    org: "Projects & coursework",
+    org: "Academic & self-study projects",
     description:
-      "Started the ML journey with end-to-end supervised-learning projects (heart disease, house prices, Titanic) using Scikit-Learn, Pandas and TensorFlow/Keras.",
+      "Started the ML journey with end-to-end supervised-learning projects (heart disease, house prices, rainfall) using Scikit-Learn, Pandas and TensorFlow/Keras.",
   },
 ];
 

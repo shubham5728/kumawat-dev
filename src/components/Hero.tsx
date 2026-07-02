@@ -1,4 +1,4 @@
-import { profile, stats } from "@/lib/data";
+import { profile, stats, coreStack } from "@/lib/data";
 import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRightIcon } from "./icons";
 import Avatar from "./Avatar";
 import Reveal from "./Reveal";
@@ -44,6 +44,19 @@ export default function Hero() {
             </Reveal>
 
             <Reveal index={4}>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {coreStack.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-muted"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal index={5}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
                   href="#work"
@@ -88,7 +101,7 @@ export default function Hero() {
         </div>
 
         {/* Stats strip */}
-        <Reveal index={5}>
+        <Reveal index={6}>
           <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="bg-background px-5 py-6">

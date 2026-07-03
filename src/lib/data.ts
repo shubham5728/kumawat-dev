@@ -124,7 +124,7 @@ export const education: {
 export const achievements: string[] = [
   "IBM Data Science Professional Certificate",
   "GitHub Pull Shark badge",
-  "12+ open-source ML & data-science repositories",
+  "10+ open-source ML & data-science repositories",
   "Built real-time streaming ML systems with Kafka & Spark",
 ];
 

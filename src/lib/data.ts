@@ -185,7 +185,7 @@ export const flagshipRepos: {
     name: "SWaT-AI-Guardian",
     headline: "Real-time anomaly detection for water-treatment infrastructure",
     blurb:
-      "A 24/7 AI system that monitors every sensor in a water-treatment plant and raises an alarm within seconds of a cyber-attack or fault — it pinpoints which part is misbehaving and honestly shows its own live accuracy as it runs. Powered by an unsupervised deep-learning ensemble that even catches new, unknown attacks.",
+      "A real-time AI security dashboard that live-monitors every sensor in a water plant, raises an alarm and an incident the moment an attack or anomaly appears, tells you which part is misbehaving, lets the operator manage it, and honestly shows its own true accuracy as it runs.",
     highlights: [
       "Real-time detection",
       "Catches unknown attacks",

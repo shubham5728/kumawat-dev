@@ -183,10 +183,16 @@ export const flagshipRepos: {
 }[] = [
   {
     name: "SWaT-AI-Guardian",
-    headline: "Real-time anomaly detection for water-treatment infrastructure",
+    headline: "Real-time AI security for water-treatment plants",
     blurb:
-      "Streaming Big-Data platform: Kafka ingestion, Spark Structured Streaming, a TensorFlow autoencoder + Isolation Forest ensemble, served via FastAPI with a Streamlit dashboard.",
-    highlights: ["Kafka + Spark", "TensorFlow", "FastAPI", "Docker Compose"],
+      "A 24/7 AI system that monitors every sensor in a water-treatment plant and raises an alarm within seconds of a cyber-attack or fault — it pinpoints which part is misbehaving and honestly shows its own live accuracy as it runs. Powered by an unsupervised deep-learning ensemble that even catches new, unknown attacks.",
+    highlights: [
+      "Real-time detection",
+      "Catches unknown attacks",
+      "Kafka + Spark",
+      "Autoencoder + Isolation Forest",
+      "React + FastAPI",
+    ],
     categories: ["Deep Learning", "Data Science"],
   },
   {

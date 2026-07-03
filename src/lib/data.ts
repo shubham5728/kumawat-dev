@@ -24,7 +24,7 @@ export const about = {
   paragraphs: [
     "I'm currently pursuing my B.E. in Computer Science & Engineering (Data Science) at SAL College of Engineering, Ahmedabad — and alongside coursework I build real ML systems end to end: framing the problem, engineering the data pipeline, training and validating models, and shipping them as services people can actually use.",
     "Right now my focus is real-time industrial monitoring — streaming 50+ sensor signals through Kafka and Spark, running Transformer and autoencoder ensembles for anomaly detection, and serving predictions through FastAPI and Streamlit dashboards, all containerized with Docker. I care about honest evaluation too — reporting F1 and false-positive rates, not just accuracy.",
-    "Going forward, I want to go deeper into production AI and MLOps — reliable model deployment, streaming inference, and monitoring — and grow into a Data Scientist / ML Engineer role where I build AI systems that actually run in production. I'm actively looking for internships and opportunities to do exactly that.",
+    "My bigger goal is to build a Data Science + AI company — one that sells business outcomes, not just algorithms. I'm working toward a studio that ships production AI across industrial monitoring, computer vision, NLP/LLMs and MLOps, turning messy real-world data into systems that measurably move a business. For now I'm sharpening those skills through real projects and I'm open to internships, freelance work, and collaborations that move me in that direction.",
   ],
 };
 

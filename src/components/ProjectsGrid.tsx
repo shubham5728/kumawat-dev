@@ -17,6 +17,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       "Machine Learning",
       "Deep Learning",
       "Computer Vision",
+      "Developer Tools",
       "Data Science",
     ];
     return ["All", ...order.filter((c) => present.has(c))];

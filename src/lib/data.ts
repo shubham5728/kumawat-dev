@@ -133,7 +133,35 @@ export type Category =
   | "Machine Learning"
   | "Deep Learning"
   | "Computer Vision"
+  | "Developer Tools"
   | "Data Science";
+
+/*
+ * Manually-curated projects that are NOT in the public GitHub feed — e.g.
+ * private repos that are deployed live. These lead clients straight to the
+ * live URL. A project only renders if `liveUrl` is set (guards against
+ * publishing a broken client-facing link).
+ */
+export const manualProjects: {
+  name: string;
+  headline: string;
+  blurb: string;
+  highlights: string[];
+  categories: Category[];
+  liveUrl: string;
+  isPrivate: boolean;
+}[] = [
+  {
+    name: "OmniSentient",
+    headline: "The AI engineer that fixes your failing CI builds",
+    blurb:
+      "An AI agent for CI/CD reliability: it reads a failing build (GitHub Actions / GitLab), pinpoints the root cause, and opens a review-ready pull request with a fix verified inside an ephemeral sandbox. Read-only by default — a human approves every merge.",
+    highlights: ["AI Agent", "CI/CD", "AST Analysis", "Sandboxed Fixes"],
+    categories: ["Developer Tools"],
+    liveUrl: "https://omnisentient-bot.vercel.app",
+    isPrivate: true,
+  },
+];
 
 // Repos to hide from the live feed entirely (case-insensitive, by name).
 export const excludedRepos: string[] = [

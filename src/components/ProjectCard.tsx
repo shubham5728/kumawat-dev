@@ -3,11 +3,13 @@ import {
   StarIcon,
   ForkIcon,
   GitHubIcon,
-  ExternalIcon,
   ArrowUpRightIcon,
 } from "./icons";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  // Clients click through to the live site first; fall back to the repo.
+  const primaryUrl = project.liveUrl || project.homepage || project.url;
+
   return (
     <article className="group relative flex h-full flex-col rounded-lg border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/40 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.04)]">
       <div className="flex items-start justify-between gap-4">
@@ -16,6 +18,12 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.isFlagship && (
               <span className="rounded-full border border-foreground/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
                 Featured
+              </span>
+            )}
+            {project.liveUrl && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent-contrast">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-contrast" />
+                Live
               </span>
             )}
             {project.categories.slice(0, 1).map((c) => (
@@ -32,10 +40,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           </h3>
         </div>
         <a
-          href={project.url}
+          href={primaryUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Open ${project.displayName} on GitHub`}
+          aria-label={`Open ${project.displayName}`}
           className="shrink-0 text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
         >
           <ArrowUpRightIcon />
@@ -65,7 +73,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </ul>
       )}
 
-      <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+      <div className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-4">
         <div className="flex items-center gap-4 text-xs text-muted">
           {project.language && (
             <span className="inline-flex items-center gap-1.5">
@@ -73,45 +81,54 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.language}
             </span>
           )}
-          <span className="inline-flex items-center gap-1">
-            <StarIcon width={14} height={14} />
-            {project.stars}
-          </span>
+          {(project.stars > 0 || !project.isPrivate) && (
+            <span className="inline-flex items-center gap-1">
+              <StarIcon width={14} height={14} />
+              {project.stars}
+            </span>
+          )}
           {project.forks > 0 && (
             <span className="inline-flex items-center gap-1">
               <ForkIcon width={14} height={14} />
               {project.forks}
             </span>
           )}
+          {project.isPrivate && (
+            <span className="font-mono text-[11px]">Private repo</span>
+          )}
         </div>
 
-        <div className="flex items-center gap-3">
-          {project.homepage && (
+        <div className="flex shrink-0 items-center gap-2">
+          {project.liveUrl && (
             <a
-              href={project.homepage}
+              href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${project.displayName} live demo`}
-              className="text-muted transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-1 rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-contrast transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
             >
-              <ExternalIcon width={16} height={16} />
+              Live Demo
+              <ArrowUpRightIcon width={13} height={13} />
             </a>
           )}
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${project.displayName} source`}
-            className="text-muted transition-colors hover:text-foreground"
-          >
-            <GitHubIcon width={16} height={16} />
-          </a>
+          {!project.isPrivate && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.displayName} source on GitHub`}
+              className="text-muted transition-colors hover:text-foreground"
+            >
+              <GitHubIcon width={16} height={16} />
+            </a>
+          )}
         </div>
       </div>
 
-      <p className="mt-3 font-mono text-[11px] text-muted">
-        {project.updatedLabel}
-      </p>
+      {project.updatedLabel && (
+        <p className="mt-3 font-mono text-[11px] text-muted">
+          {project.updatedLabel}
+        </p>
+      )}
     </article>
   );
 }

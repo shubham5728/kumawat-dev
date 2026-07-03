@@ -3,6 +3,7 @@ import {
   flagshipRepos,
   excludedRepos,
   categoryKeywords,
+  manualProjects,
   type Category,
 } from "./data";
 
@@ -39,6 +40,10 @@ export interface Project {
   updatedLabel: string;
   categories: Category[];
   isFlagship: boolean;
+  // Live deployment URL (Vercel etc.) — clients click through to this first.
+  liveUrl: string | null;
+  // Private repo: hide the GitHub link since it isn't publicly accessible.
+  isPrivate: boolean;
   headline?: string;
   highlights?: string[];
 }
@@ -126,7 +131,8 @@ export async function getProjects(): Promise<Project[]> {
     )
     .map(mapRepo);
 
-  return sortProjects(projects);
+  // Manual/private live projects lead the list, then the sorted GitHub feed.
+  return [...manualAsProjects(), ...sortProjects(projects)];
 }
 
 function mapRepo(repo: GitHubRepo): Project {
@@ -149,9 +155,38 @@ function mapRepo(repo: GitHubRepo): Project {
     updatedLabel: relativeTime(repo.pushed_at),
     categories: flagship?.categories ?? inferCategories(repo),
     isFlagship: Boolean(flagship),
+    liveUrl: repo.homepage && repo.homepage.trim() ? repo.homepage : null,
+    isPrivate: false,
     headline: flagship?.headline,
     highlights: flagship?.highlights,
   };
+}
+
+// Curated projects not in the public feed (e.g. private, live on Vercel).
+// Only surfaced when a live URL is present so clients never hit a dead link.
+function manualAsProjects(): Project[] {
+  return manualProjects
+    .filter((m) => m.liveUrl.trim().length > 0)
+    .map((m, i) => ({
+      id: -1000 - i,
+      name: m.name,
+      displayName: m.name,
+      url: m.liveUrl, // primary click → live site (repo may be private)
+      homepage: m.liveUrl,
+      description: m.blurb,
+      language: null,
+      stars: 0,
+      forks: 0,
+      topics: [],
+      pushedAt: new Date().toISOString(),
+      updatedLabel: "",
+      categories: m.categories,
+      isFlagship: true,
+      liveUrl: m.liveUrl,
+      isPrivate: m.isPrivate,
+      headline: m.headline,
+      highlights: m.highlights,
+    }));
 }
 
 function sortProjects(projects: Project[]): Project[] {
@@ -187,6 +222,8 @@ function fallbackProjects(): Project[] {
     updatedLabel: "Updated recently",
     categories: r.categories,
     isFlagship: true,
+    liveUrl: null,
+    isPrivate: false,
     headline: r.headline,
     highlights: r.highlights,
   }));

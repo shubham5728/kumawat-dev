@@ -61,23 +61,23 @@ export default function ProjectCard({ project }: { project: Project }) {
       </p>
 
       {(project.problem || project.solution) && (
-        <dl className="mt-4 space-y-3">
+        <dl className="mt-4 space-y-2.5">
           {project.problem && (
-            <div>
-              <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+            <div className="rounded-md border border-border border-l-2 border-l-foreground bg-background px-3.5 py-2.5">
+              <dt className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground">
                 The Problem
               </dt>
-              <dd className="mt-1 text-sm leading-relaxed text-foreground/80">
+              <dd className="mt-1.5 text-sm leading-relaxed text-foreground/75">
                 {project.problem}
               </dd>
             </div>
           )}
           {project.solution && (
-            <div>
-              <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+            <div className="rounded-md border border-border border-l-2 border-l-foreground bg-background px-3.5 py-2.5">
+              <dt className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground">
                 The Solution
               </dt>
-              <dd className="mt-1 text-sm leading-relaxed text-foreground/80">
+              <dd className="mt-1.5 text-sm leading-relaxed text-foreground/75">
                 {project.solution}
               </dd>
             </div>

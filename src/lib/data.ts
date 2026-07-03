@@ -150,13 +150,25 @@ export const manualProjects: {
   categories: Category[];
   liveUrl: string;
   isPrivate: boolean;
+  problem?: string;
+  solution?: string;
 }[] = [
   {
     name: "OmniSentient",
-    headline: "The AI engineer that fixes your failing CI builds",
+    headline: "The autonomous AI engineer that finds bugs and ships the fix",
     blurb:
-      "An AI agent for CI/CD reliability: it reads a failing build (GitHub Actions / GitLab), pinpoints the root cause, and opens a review-ready pull request with a fix verified inside an ephemeral sandbox. Read-only by default — a human approves every merge.",
-    highlights: ["AI Agent", "CI/CD", "AST Analysis", "Sandboxed Fixes"],
+      "A SaaS platform that plugs into your GitHub and acts like an autonomous AI engineer — it scans your code for bugs and security issues, then opens verified, sandbox-tested pull requests that fix them, with every change tracked in an audit trail and a human approving each merge.",
+    problem:
+      "Engineering teams ship fast, but security and code reviews are still manual — so bugs and vulnerabilities sit in production for days, and reviewers drown in false positives.",
+    solution:
+      "An AI agent that continuously watches your repositories, finds real issues, and delivers ready-to-merge fixes automatically — turning days of exposure into minutes, with humans always in control.",
+    highlights: [
+      "AI Agent",
+      "Auto-Fix PRs",
+      "GitHub App",
+      "Gemini AI",
+      "Policy-as-Code",
+    ],
     categories: ["Developer Tools"],
     liveUrl: "https://omnisentient-bot.vercel.app",
     isPrivate: true,

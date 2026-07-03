@@ -190,6 +190,8 @@ function manualAsProjects(): Project[] {
       isPrivate: m.isPrivate,
       headline: m.headline,
       highlights: m.highlights,
+      problem: m.problem,
+      solution: m.solution,
     }));
 }
 

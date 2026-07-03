@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import MobileMenu from "./MobileMenu";
 import { profile } from "@/lib/data";
 
 const navItems = [
@@ -34,6 +35,7 @@ export default function Header() {
             ))}
           </nav>
           <ThemeToggle />
+          <MobileMenu items={navItems} />
         </div>
       </div>
     </header>

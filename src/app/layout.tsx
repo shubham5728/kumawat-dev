@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/lib/data";
+import { siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kumawat-dev.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: `${profile.name} — ${profile.role}`,
   description: profile.summary,
   keywords: [

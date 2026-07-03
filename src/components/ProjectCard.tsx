@@ -56,9 +56,37 @@ export default function ProjectCard({ project }: { project: Project }) {
         </p>
       )}
 
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+      <p className="mt-3 text-sm leading-relaxed text-muted">
         {project.description}
       </p>
+
+      {(project.problem || project.solution) && (
+        <dl className="mt-4 space-y-3">
+          {project.problem && (
+            <div>
+              <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                The Problem
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-foreground/80">
+                {project.problem}
+              </dd>
+            </div>
+          )}
+          {project.solution && (
+            <div>
+              <dt className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                The Solution
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-foreground/80">
+                {project.solution}
+              </dd>
+            </div>
+          )}
+        </dl>
+      )}
+
+      {/* Spacer keeps the footer pinned to the bottom of the card */}
+      <div className="flex-1" />
 
       {project.highlights && project.highlights.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-1.5">

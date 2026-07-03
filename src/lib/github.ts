@@ -46,6 +46,8 @@ export interface Project {
   isPrivate: boolean;
   headline?: string;
   highlights?: string[];
+  problem?: string;
+  solution?: string;
 }
 
 const GITHUB_API = `https://api.github.com/users/${profile.githubUser}/repos?per_page=100&sort=pushed`;
@@ -159,6 +161,8 @@ function mapRepo(repo: GitHubRepo): Project {
     isPrivate: false,
     headline: flagship?.headline,
     highlights: flagship?.highlights,
+    problem: flagship?.problem,
+    solution: flagship?.solution,
   };
 }
 
@@ -226,5 +230,7 @@ function fallbackProjects(): Project[] {
     isPrivate: false,
     headline: r.headline,
     highlights: r.highlights,
+    problem: r.problem,
+    solution: r.solution,
   }));
 }

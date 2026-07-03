@@ -180,12 +180,18 @@ export const flagshipRepos: {
   blurb: string;
   highlights: string[];
   categories: Category[];
+  problem?: string;
+  solution?: string;
 }[] = [
   {
     name: "SWaT-AI-Guardian",
     headline: "Real-time anomaly detection for water-treatment infrastructure",
     blurb:
       "A real-time AI security dashboard that live-monitors every sensor in a water plant, raises an alarm and an incident the moment an attack or anomaly appears, tells you which part is misbehaving, lets the operator manage it, and honestly shows its own true accuracy as it runs.",
+    problem:
+      "In water-treatment plants, a cyber-attack or fault on the sensors can cause serious damage — and older rule-based systems can't catch new, unknown attacks.",
+    solution:
+      "An AI system that watches the plant 24/7 and raises an alert the instant anything abnormal happens.",
     highlights: [
       "Real-time detection",
       "Catches unknown attacks",

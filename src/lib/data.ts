@@ -22,9 +22,9 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a data scientist and machine-learning engineer focused on the full lifecycle of an ML system: framing the problem, engineering the data pipeline, training and validating models, and shipping them as services people can actually use.",
-    "My recent work centres on real-time industrial monitoring — streaming 50+ sensor signals through Kafka and Spark, running Transformer and autoencoder ensembles for anomaly detection, and serving predictions through FastAPI and Streamlit dashboards, all containerized with Docker.",
-    "I care about honest evaluation (reporting F1 and false-positive rates, not just accuracy), clean project structure, and documentation that lets someone else run the system.",
+    "I'm currently pursuing my B.E. in Computer Science & Engineering (Data Science) at SAL College of Engineering, Ahmedabad — and alongside coursework I build real ML systems end to end: framing the problem, engineering the data pipeline, training and validating models, and shipping them as services people can actually use.",
+    "Right now my focus is real-time industrial monitoring — streaming 50+ sensor signals through Kafka and Spark, running Transformer and autoencoder ensembles for anomaly detection, and serving predictions through FastAPI and Streamlit dashboards, all containerized with Docker. I care about honest evaluation too — reporting F1 and false-positive rates, not just accuracy.",
+    "Going forward, I want to go deeper into production AI and MLOps — reliable model deployment, streaming inference, and monitoring — and grow into a Data Scientist / ML Engineer role where I build AI systems that actually run in production. I'm actively looking for internships and opportunities to do exactly that.",
   ],
 };
 

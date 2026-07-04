@@ -217,19 +217,19 @@ export const flagshipRepos: {
   },
   {
     name: "AI-Sign-Language-Translator",
-    headline: "Bidirectional real-time sign-language translator",
+    headline: "Real-time sign-language recognition, in the browser",
     blurb:
-      "A two-way communication bridge for the Deaf and Hard-of-Hearing community — it reads live webcam gestures and speaks them out loud in real time, and turns spoken or typed words back into sign, even structuring raw gestures into grammatically correct sentences.",
+      "A real-time translator that reads Indian Sign Language gestures from your webcam and speaks them out loud instantly. It runs entirely in your browser, with no server and nothing to install, using a Bidirectional LSTM and MediaPipe.",
     problem:
-      "Deaf and hard-of-hearing people hit a communication barrier every day — most people around them don't sign, and existing tools are one-way or too slow for a real conversation.",
+      "Deaf and hard-of-hearing people face a communication barrier every day. Most people around them don't know sign language, and existing tools are clunky or need special hardware.",
     solution:
-      "A real-time AI translator that converts sign language to speech and speech back to sign — both directions, instantly — so a natural two-way conversation just works.",
+      "A browser-based AI that watches the webcam, recognizes the sign, and speaks it in real time. 170 signs, nothing to install, works on any laptop.",
     highlights: [
-      "MediaPipe Holistic",
-      "LSTM + BiLSTM",
-      "170+ ISL signs",
-      "Real-time CV",
-      "Text-to-Speech",
+      "MediaPipe",
+      "BiLSTM",
+      "170 signs",
+      "In-browser (TF.js)",
+      "Real-time",
     ],
     categories: ["Computer Vision", "Deep Learning"],
   },

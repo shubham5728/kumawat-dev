@@ -157,7 +157,9 @@ function mapRepo(repo: GitHubRepo): Project {
     updatedLabel: relativeTime(repo.pushed_at),
     categories: flagship?.categories ?? inferCategories(repo),
     isFlagship: Boolean(flagship),
-    liveUrl: repo.homepage && repo.homepage.trim() ? repo.homepage : null,
+    liveUrl:
+      flagship?.liveUrl ||
+      (repo.homepage && repo.homepage.trim() ? repo.homepage : null),
     isPrivate: false,
     headline: flagship?.headline,
     highlights: flagship?.highlights,
@@ -228,7 +230,7 @@ function fallbackProjects(): Project[] {
     updatedLabel: "Updated recently",
     categories: r.categories,
     isFlagship: true,
-    liveUrl: null,
+    liveUrl: r.liveUrl ?? null,
     isPrivate: false,
     headline: r.headline,
     highlights: r.highlights,

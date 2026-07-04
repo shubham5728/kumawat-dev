@@ -194,9 +194,11 @@ export const flagshipRepos: {
   categories: Category[];
   problem?: string;
   solution?: string;
+  liveUrl?: string;
 }[] = [
   {
     name: "SWaT-AI-Guardian",
+    liveUrl: "https://shubhamkumawat722-swat-ai-guardian.hf.space",
     headline: "Real-time anomaly detection for water-treatment infrastructure",
     blurb:
       "A real-time AI security dashboard that live-monitors every sensor in a water plant, raises an alarm and an incident the moment an attack or anomaly appears, tells you which part is misbehaving, lets the operator manage it, and honestly shows its own true accuracy as it runs.",

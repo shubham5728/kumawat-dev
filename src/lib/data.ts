@@ -219,8 +219,18 @@ export const flagshipRepos: {
     name: "AI-Sign-Language-Translator",
     headline: "Bidirectional real-time sign-language translator",
     blurb:
-      "Converts sign gestures to speech and back using MediaPipe Holistic landmarks and an LSTM network — 170+ classes, ~35ms recognition latency on a standard webcam.",
-    highlights: ["MediaPipe", "LSTM", "OpenCV", "Streamlit"],
+      "A two-way communication bridge for the Deaf and Hard-of-Hearing community — it reads live webcam gestures and speaks them out loud in real time, and turns spoken or typed words back into sign, even structuring raw gestures into grammatically correct sentences.",
+    problem:
+      "Deaf and hard-of-hearing people hit a communication barrier every day — most people around them don't sign, and existing tools are one-way or too slow for a real conversation.",
+    solution:
+      "A real-time AI translator that converts sign language to speech and speech back to sign — both directions, instantly — so a natural two-way conversation just works.",
+    highlights: [
+      "MediaPipe Holistic",
+      "LSTM + BiLSTM",
+      "170+ ISL signs",
+      "Real-time CV",
+      "Text-to-Speech",
+    ],
     categories: ["Computer Vision", "Deep Learning"],
   },
   {
